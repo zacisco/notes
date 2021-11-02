@@ -1,0 +1,2 @@
+# notes
+some usefull code
