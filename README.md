@@ -1,2 +1,2 @@
 # notes
-some usefull code in **_[Wiki](https://github.com/zacisco/notes/wiki)_**
+some usefull notes and code in **_[Wiki](https://github.com/zacisco/notes/wiki)_**
