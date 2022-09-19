@@ -70,7 +70,7 @@ fi
 # ==============================================================================================================
 
 # options with : requires 1 argument
-LONGOPTS=backup_dir:,user:,database:,schemes:,telegram_channel:,telegram_token:,remove:,help
+LONGOPTS=dir:,user:,database:,schemes:,telegram_channel:,telegram_token:,remove:,help
 OPTIONS=d:,u:,b:,s:,c:,t:,r:,h
 
 # ==============================================================================================================
