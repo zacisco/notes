@@ -167,8 +167,11 @@ unset 'schemes[-1]';
 cd $backup_dir
 workDir=`pwd`
 
-echo "Cleaning old dumps"
-find . -name '*.sql.gz' -mtime +$cleanOldDay -exec rm {} \;
+if [[ $(ls *.sql.gz | wc -l) -gt ${#schemes[@]} * 7 ]]
+then
+    echo "Cleaning old dumps"
+    find . -name '*.sql.gz' -mtime +$cleanOldDay -exec rm {} \;
+fi
 
 send_msg "PG Dev Dump Start"
 
