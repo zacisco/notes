@@ -13,7 +13,7 @@ help() {
     and move it in backup directory.
 
 \e[1mOPTIONS\e[0m
-    -d, --backup_dir
+    -d, --dir
         name of backup directory (\e[4mpg_backup\e[0m by default)
 
     -u, --user
