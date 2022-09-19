@@ -34,7 +34,8 @@ help() {
     -r, --remove
         number of days for cleaning old backups (\e[4m14\e[0m by default)
 
-    -h, --help              show this HELP
+    -h, --help
+        show this HELP
 
 \e[1mARGUMENTS\e[0m
     container name or container id where running POSTGRES database
