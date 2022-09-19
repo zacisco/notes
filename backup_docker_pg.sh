@@ -34,8 +34,7 @@ help() {
     -r, --remove
         number of days for cleaning old backups (\e[4m14\e[0m by default)
 
-    -h, --help
-        show this HELP
+    -h, --help              show this HELP
 
 \e[1mARGUMENTS\e[0m
     container name or container id where running POSTGRES database
@@ -46,7 +45,7 @@ help() {
 send_msg() {
     if [ $sentBotMsg -eq 1 ]
     then
-        curl -X POST -s -o /dev/null -d chat_id=$tChatId -d text="$1" $tBotUrl
+        curl -X POST -s -o /dev/null -d chat_id="$tBotChatId" -d text="$1" $tBotUrl
     fi
 }
 
@@ -95,9 +94,9 @@ db=postgres
 schemes="all"
 tBotChatId=""
 tBotToken=""
-tBotUrl="https://api.telegram.org/bot$tBotToken/sendMessage"
 cleanOldDay=14
 sentBotMsg=0
+
 
 # now enjoy the options in order and nicely split until we see --
 while true; do
@@ -153,6 +152,8 @@ fi
 
 # ==============================================================================================================
 
+tBotUrl="https://api.telegram.org/bot$tBotToken/sendMessage"
+
 container=$1
 
 [ -z "$container" ] && echo -e "Container not found" && exit 0
@@ -171,6 +172,7 @@ find . -name '*.sql.gz' -mtime +$cleanOldDay -exec rm {} \;
 
 send_msg "PG Dev Dump Start"
 
+cmd=""
 for cur in ${schemes[@]}
 do
     if [ "$cur" != "all" ]
