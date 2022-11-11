@@ -1,0 +1,1 @@
+docker run -d --name keycloak -p 9010:8080 -p 9011:8443 -e KC_HTTP_RELATIVE_PATH=/secret -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -e KC_PROXY=edge -e PROXY_ADDRESS_FORWARDING=true -v /custom/keycloak/:/opt/keycloak/data/h2/ keycloak_theme start-dev
