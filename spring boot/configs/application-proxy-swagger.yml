@@ -1,0 +1,12 @@
+server:
+  forward-headers-strategy: native
+  # for all app context
+  # servlet:
+  #   context-path: /${spring.application.name}
+
+# for proxied swagger only
+springdoc:
+  api-docs:
+    path: ${BASE_PATH:""}/${spring.application.name}/v3/api-docs
+  swagger-ui:
+    path: ${BASE_PATH:""}/${spring.application.name}/swagger-ui.html
