@@ -1,0 +1,42 @@
+Configuration:
+#  Packages: org.springframework.boot.logging.log4j2
+  Properties:
+    Property:
+      - name: LOG_EXCEPTION_CONVERSION_WORD
+        value: "%xwEx"
+      - name: LOG_LEVEL_PATTERN
+        value: "%5p"
+      - name: LOG_DATEFORMAT_PATTERN
+        value: "yyyy-MM-dd HH:mm:ss.SSS"
+      - name: CONSOLE_LOG_PATTERN
+        value: "%clr{%d{${sys:LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${sys:LOG_LEVEL_PATTERN}} %clr{%pid}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}"
+      - name: FILE_LOG_PATTERN
+        value: "%d{${LOG_DATEFORMAT_PATTERN}} ${LOG_LEVEL_PATTERN} %pid --- [%t] %-40.40c{1.} : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}"
+
+  Appenders:
+    Appender:
+      - name: Console
+        type: Console
+        PatternLayout:
+          pattern: "${sys:CONSOLE_LOG_PATTERN}"
+      - name: Syslog
+        type: Syslog
+        format: "${env:SYSLOG_FORMAT:-RFC5424}"
+        host: "${env:SYSLOG_HOST}"
+        port: "${env:SYSLOG_PORT:-514}"
+        protocol: "${env:SYSLOG_PROTOCOL:-TCP}"
+        newLine: "${env:SYSLOG_NEW_LINE:-true}"
+        facility: "${env:SYSLOG_FACILITY:-AUDIT}"
+        appName: "LKK-LOGGING-SERVICE"
+  #        PatternLayout:
+  #          pattern: "${sys:CONSOLE_LOG_PATTERN}"
+
+  Loggers:
+    Root:
+      AppenderRef:
+        - ref: Console
+    Logger:
+      - name: package.path.with.or.not.class
+        additivity: false # false - write log on self layer without write in uppers layers
+        AppenderRef:
+          - ref: Syslog
