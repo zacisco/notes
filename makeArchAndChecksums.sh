@@ -32,7 +32,7 @@ do
     rm -rf .git
     cd ..
     echo Calculating checksumms of $proj
-    find $proj -type f -exec bash -c "cksum {} >> $crcfile && md5sum {} >> $md5file && sha1sum {} >> $sha1file" \;
+    find $proj -type f -exec bash -c "cksum \"{}\" >> $crcfile && md5sum \"{}\" >> $md5file && sha1sum \"{}\" >> $sha1file" \;
     echo Archivating $proj
     tar -czf ${proj}_`date +"%d-%m-%Y_%H-%M"`.tar.gz $proj
     rm -fr $proj
