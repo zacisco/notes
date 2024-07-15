@@ -7,7 +7,7 @@ import git
 import pandas as pd
 
 # Путь к локальному репозиторию GitLab
-repo_path = '/root/document'
+repo_path = '<your_path>'
 
 # Инициализация Git-репозитория
 repo = git.Repo(repo_path)
