@@ -25,7 +25,7 @@
 	"    max-width: 85%;",
 	"    float: right;",
 	"}",
-    ".Message .has-reactions {",
+    ".Message .Reactions {",
     "    max-width: unset !important;",
     "}",
 	".message-content:not(.document):not(.media):not(.web-page) {",
