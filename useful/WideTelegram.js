@@ -4,6 +4,8 @@
 // @author        Z@C
 // @icon          https://web.telegram.org/a/favicon.ico
 // @match         https://web.telegram.org/*
+// @updateURL     https://raw.githubusercontent.com/zacisco/notes/master/useful/WideTelegram.js
+// @downloadURL   https://raw.githubusercontent.com/zacisco/notes/master/useful/WideTelegram.js
 // @run-at        document-end
 // @version       0.5
 // ==/UserScript==
