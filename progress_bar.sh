@@ -6,7 +6,7 @@ bar_char_done="#"
 bar_char_left=" "
 bar_percentage_scale=0
 
-function show_progress {
+show_progress() {
   current="$1"
   total="$2"
   add_text="$3"
