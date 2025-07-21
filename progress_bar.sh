@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Progress Bar Options
+# Percent Progress Bar Options
 bar_size=40
 bar_char_done="#"
 bar_char_left=" "
 bar_percentage_scale=0
 
-show_progress() {
+show_percent_progress() {
   current="$1"
   total="$2"
   add_text="$3"
@@ -15,5 +15,15 @@ show_progress() {
   left=$(( bar_size - done ))
   done_sub_bar=$(printf "%${done}s" | tr " " "${bar_char_done}")
   left_sub_bar=$(printf "%${left}s" | tr " " "${bar_char_left}")
-  echo -ne "\rProgress : [${done_sub_bar}${left_sub_bar}] ${percent}% ${add_text}"
+  echo -ne "\rProgress: [${done_sub_bar}${left_sub_bar}] ${percent}% ${add_text}"
+}
+
+# Spinner Progress Bar Options
+spinner_chars="/-\|"
+
+show_spinner_progress() {
+  local progress=$(( ($1+1) %4 ))
+  local add_text="$2"
+  [ -z "${add_text}" ] && add_text="Progress:"
+  echo -ne "\r${add_text} ${spinner_chars:$progress:1}"
 }
