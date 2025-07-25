@@ -66,15 +66,16 @@ get_single_folder() {
 
 check_app() {
   local cmd="${1}"
-  echo "$(command -v $cmd >/dev/null 2>&1)"
+  echo "$(command -v $cmd)"
 }
 
+# USE after mkdir for MORE effective
 get_absolute_path() {
   local path="${1}"
   if [ ! -z "$(check_app realpath)" ]; then
-    echo "$(realpath ${path})"
+    echo $(realpath $path)
   elif [ ! -z "$(check_app readlink)" ]; then
-    echo "$(readlink -f ${path})"
+    echo $(readlink -f $path)
   else
     echo $(cd "${path}" 2>/dev/null && pwd) # for exists path ONLY
   fi
