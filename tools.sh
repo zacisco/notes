@@ -60,6 +60,10 @@ check_curl_status() {
   [ $? -eq 0 ] && [ $val -ne 200 ] && echo "${stage} ERROR. Look at ${file}" && exit
 }
 
+get_single_folder() {
+  echo $(find "${1}" -mindepth 1 -maxdepth 1 -type d)
+}
+
 make_dir() {
   [ ! -d "${1}" ] && mkdir -p $1 && echo -e "${Yellow}Директория ${1} была создана${Color_Off}"
 }
