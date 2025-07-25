@@ -64,6 +64,22 @@ get_single_folder() {
   echo $(find "${1}" -mindepth 1 -maxdepth 1 -type d)
 }
 
+check_app() {
+  local cmd="${1}"
+  echo "$(command -v $cmd >/dev/null 2>&1)"
+}
+
+get_absolute_path() {
+  local path="${1}"
+  if [ ! -z "$(check_app realpath)" ]; then
+    echo "$(realpath ${path})"
+  elif [ ! -z "$(check_app readlink)" ]; then
+    echo "$(readlink -f ${path})"
+  else
+    echo $(cd "${path}" 2>/dev/null && pwd) # for exists path ONLY
+  fi
+}
+
 make_dir() {
   [ ! -d "${1}" ] && mkdir -p $1 && echo -e "${Yellow}Директория ${1} была создана${Color_Off}"
 }
