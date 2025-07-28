@@ -70,6 +70,7 @@ check_app() {
 }
 
 # USE after mkdir for MORE effective
+# without mkdir work for 1 depth ONLY for not exists dir
 get_absolute_path() {
   local path="${1}"
   if [ ! -z "$(check_app realpath)" ]; then
