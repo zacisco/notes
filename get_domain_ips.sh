@@ -22,8 +22,7 @@ for i in $(seq 1 $try); do
     let persent=(${i}*100/${try}*100)/100
     echo -ne "Progress: $persent%\r"
     rnd_dns=$(shuf -i 0-$len -n 1)
-    [ $i -eq 1 ] && dig @${dns[$rnd_dns]} +short $domain > ips.list
-    [ $i -gt 1 ] && dig @${dns[$rnd_dns]} +short $domain >> ips.list
+    dig @${dns[$rnd_dns]} +short $domain 2>/dev/null >> ips.list
     sleep 0.2
 done
 echo -ne '                                                           \r\n'
