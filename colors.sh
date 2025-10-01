@@ -5,6 +5,8 @@
 # \x1B	Шестнадцатеричная запись ESC   	    Аналогично \033, также универсальна
 # ^[	Caret-нотация для отображения ESC  	Не используется для задания цвета, только для визуализации ESC в терминале
 
+Clear_Line='\e[K'       # Clear line text after progress bar,example
+
 # Reset
 Color_Off='\e[0m'       # Text Reset
 
