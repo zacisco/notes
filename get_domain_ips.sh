@@ -25,7 +25,7 @@ for i in $(seq 1 $try); do
     dig @${dns[$rnd_dns]} +short $domain 2>/dev/null >> ips.list
     sleep 0.2
 done
-echo -ne '                                                           \r\n'
+echo -ne '\e[K'
 
 sort -u ips.list > tmp.list
 mv -f tmp.list ips.list
