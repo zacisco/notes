@@ -44,16 +44,11 @@
 // ===== End WIDE =====
 
 // ===== Remove OVERLAY =====
-    const selectors = [
-        'div[data-type="portal"] div'
-    ];
-
     function removeOverlay() {
-        for (const sel of selectors) {
-            document.querySelectorAll(sel).forEach(el => el.remove());
+        let block = document.querySelector('div.text-foreground.block');
+        if (block && block.innerText.startsWith('Sign up')) {
+            block.closest('div[data-type="portal"] > div').remove();
         }
-        //document.body.style.overflow = 'auto';
-        //document.documentElement.style.overflow = 'auto';
     }
 
     removeOverlay();
