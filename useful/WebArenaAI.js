@@ -21,6 +21,18 @@
     const USR_MSG="div[class~='max-w-prose']";
 
 // ===== Make WIDE =====
+    function debounce(fn, delay) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn(...args), delay);
+        };
+    }
+
+    const onDomStable = debounce(() => {
+        makeWide();
+    }, 1000);
+
     function removeClass(el, className) {
         [...el.classList].filter(c => c.includes(className)).forEach(c => el.classList.remove(c));
     }
@@ -93,17 +105,15 @@
             });
         }
 
-        //let block = document.querySelector('div.text-foreground.block');
-        //if (block && block.innerText.startsWith('Sign up')) {
+        //let block = document.querySelector("div#chat-area div[class='w-full'] h3");
+        //if (block && block.innerText.startsWith("Which response do you prefer?")) {
         //    block.closest('div[data-type="portal"] > div').remove();
         //}
     }
 
     makeWide();
 
-    const observer = new MutationObserver(() => {
-        makeWide();
-    });
+    const observer = new MutationObserver(onDomStable);
 
     observer.observe(document.documentElement, {
         childList: true,
