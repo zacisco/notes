@@ -5,8 +5,8 @@
 // @author       Z@C
 // @match        https://arena.ai/*
 // @icon         https://arena.ai/images/favicon-rebrand.svg
-// @updateURL    https://raw.githubusercontent.com/zacisco/notes/master/useful/WebArenaAI.js
-// @downloadURL  https://raw.githubusercontent.com/zacisco/notes/master/useful/WebArenaAI.js
+// @updateURL    https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.js
+// @downloadURL  https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.js
 // @run-at       document-end
 // ==/UserScript==
 
