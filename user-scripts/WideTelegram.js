@@ -7,11 +7,14 @@
 // @updateURL     https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WideTelegram.js
 // @downloadURL   https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WideTelegram.js
 // @run-at        document-end
-// @version       0.5
+// @version       0.6
 // ==/UserScript==
 (function() {var css = [
 	"/* FOR WIDEE */",
-	".bubbles-inner {",
+    "div.messages-layout > div.fast.shown.open, div.messages-layout > div.MiddleHeader {",
+    "    max-width: unset;",
+    "}",
+    ".bubbles-inner {",
     "    width: 95%;",
     "    max-width: unset !important;",
     "}",
