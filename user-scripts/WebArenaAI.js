@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Web Arena AI (LMArena AI) Fixes
 // @description  Some fixes for Arena AI Web application.
-// @version      2026-05-24
+// @version      2026-06-24
 // @author       Z@C
 // @match        https://arena.ai/*
 // @icon         https://arena.ai/images/favicon-rebrand.svg
