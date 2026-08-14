@@ -5,8 +5,8 @@
 // @author        Z@C
 // @icon          https://www.perplexity.ai/favicon.svg
 // @match         https://www.perplexity.ai/*
-// @updateURL     https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebPerplexity.js
-// @downloadURL   https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebPerplexity.js
+// @updateURL     https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebPerplexity.user.js
+// @downloadURL   https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebPerplexity.user.js
 // @run-at        document-end
 // ==/UserScript==
 
