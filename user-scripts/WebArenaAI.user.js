@@ -4,9 +4,11 @@
 // @version      2026-06-24
 // @author       Z@C
 // @match        https://arena.ai/*
+// @match        https://lmarena.ai/*
+// @match        https://chat.lmsys.org/*
 // @icon         https://arena.ai/images/favicon-rebrand.svg
-// @updateURL    https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.js
-// @downloadURL  https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.js
+// @updateURL    https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.user.js
+// @downloadURL  https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.user.js
 // @run-at       document-end
 // ==/UserScript==
 
