@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Web Perplexity Fixes
 // @description	  Some fixes for Perplexity Web application.
-// @version       2026-04-24
+// @version       1.3
 // @author        Z@C
 // @icon          https://www.perplexity.ai/favicon.svg
 // @match         https://www.perplexity.ai/*
