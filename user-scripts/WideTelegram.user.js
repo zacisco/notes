@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name          Web Telegram Wide
 // @description	  Wide style for Telegram Web application.
+// @version       0.6
 // @author        Z@C
 // @icon          https://web.telegram.org/a/favicon.ico
 // @match         https://web.telegram.org/*
 // @updateURL     https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WideTelegram.user.js
 // @downloadURL   https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WideTelegram.user.js
 // @run-at        document-end
-// @version       0.6
 // ==/UserScript==
 (function() {var css = [
 	"/* FOR WIDEE */",
