@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name         Web Arena AI (LMArena AI) Fixes
-// @description  Some fixes for Arena AI Web application.
-// @version      2026-06-24
+// @description  Optimized fixes for Arena AI Web application.
+// @version      2026-09-21
 // @author       Z@C
 // @match        https://arena.ai/*
-// @match        https://lmarena.ai/*
-// @match        https://chat.lmsys.org/*
 // @icon         https://arena.ai/images/favicon-rebrand.svg
 // @updateURL    https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.user.js
 // @downloadURL  https://raw.githubusercontent.com/zacisco/notes/master/user-scripts/WebArenaAI.user.js
@@ -228,6 +226,10 @@
 
     const observeNewMessages = debounce(() => {
         tryCompressDOM().catch(err => console.warn("IDB archive error", err));
+        if (!!document.querySelectorAll('div #btnSave, div #btnLoad')) {
+            addLoadArchiveButton();
+            addSaveArchiveButton();
+        }
     }, 10000);
 
     const archTarget = safeQuery(document, "div#chat-area ol") || document.body;
@@ -322,17 +324,22 @@
     }
 
     const addSaveArchiveButton = () => {
+        const btnsCont = document.querySelector('div.flex.justify-between.gap-4 > div:last-child');
         const btn = document.createElement("button");
-        btn.textContent = "💾 Save session (Markdown)";
-        btn.style.cssText = "position: fixed; top: 10px; right: 50%; z-index: 9999; padding: 8px;";
+        btn.id = "btnSave";
+        btn.textContent = "💾";
+        //btn.style.cssText = "position: fixed; top: 10px; right: 50%; z-index: 9999; padding: 8px;";
         btn.onclick = () => saveSessionToMarkdownFile().catch(err => console.warn(err));
-        document.body.appendChild(btn);
+        //document.body.appendChild(btn);
+        btnsCont.insertBefore(btn, btnsCont.firstChild);
     };
 
     const addLoadArchiveButton = () => {
+        const btnsCont = document.querySelector('div.flex.justify-between.gap-4 > div:last-child');
         const btn = document.createElement("button");
-        btn.textContent = "📥 Load archive (Markdown)";
-        btn.style.cssText = "position: fixed; top: 10px; right: 35%; z-index: 9999; padding: 8px;";
+        btn.id = "btnLoad";
+        btn.textContent = "📥";
+        //btn.style.cssText = "position: fixed; top: 10px; right: 35%; z-index: 9999; padding: 8px;";
 
         const fileInput = document.createElement("input");
         fileInput.type = "file";
@@ -346,9 +353,10 @@
         };
 
         btn.onclick = () => fileInput.click();
-        document.body.appendChild(btn);
+        //document.body.appendChild(btn);
+        btnsCont.insertBefore(btn, btnsCont.firstChild);
     };
 
-    addSaveArchiveButton();
-    addLoadArchiveButton();
+    //addSaveArchiveButton();
+    //addLoadArchiveButton();
 })();
