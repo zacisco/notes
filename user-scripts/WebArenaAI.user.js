@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Web Arena AI (LMArena AI) Fixes
 // @description  Optimized fixes for Arena AI Web application.
-// @version      1.3
+// @version      1.4
 // @author       Z@C
 // @match        https://arena.ai/*
 // @icon         https://arena.ai/images/favicon-rebrand.svg
@@ -226,10 +226,8 @@
 
     const observeNewMessages = debounce(() => {
         tryCompressDOM().catch(err => console.warn("IDB archive error", err));
-        if (!!document.querySelectorAll('div #btnSave, div #btnLoad')) {
-            addLoadArchiveButton();
-            addSaveArchiveButton();
-        }
+        addLoadArchiveButton();
+        addSaveArchiveButton();
     }, 10000);
 
     const archTarget = safeQuery(document, "div#chat-area ol") || document.body;
@@ -325,6 +323,9 @@
 
     const addSaveArchiveButton = () => {
         const btnsCont = document.querySelector('div.flex.justify-between.gap-4 > div:last-child');
+        if (btnsCont.children.btnSave) {
+            return;
+        }
         const btn = document.createElement("button");
         btn.id = "btnSave";
         btn.textContent = "💾";
@@ -336,6 +337,9 @@
 
     const addLoadArchiveButton = () => {
         const btnsCont = document.querySelector('div.flex.justify-between.gap-4 > div:last-child');
+        if (btnsCont.children.btnLoad) {
+            return;
+        }
         const btn = document.createElement("button");
         btn.id = "btnLoad";
         btn.textContent = "📥";
