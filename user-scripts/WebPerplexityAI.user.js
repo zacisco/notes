@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Web Perplexity Fixes
 // @description	  Some fixes for Perplexity Web application.
-// @version       1.3
+// @version       1.4
 // @author        Z@C
 // @icon          https://www.perplexity.ai/favicon.svg
 // @match         https://www.perplexity.ai/*
@@ -45,9 +45,12 @@
 
 // ===== Remove OVERLAY =====
     function removeOverlay() {
-        let block = document.querySelector('div.text-foreground.block');
+        let block = document.querySelector('div.font-serif.text-3xl.font-normal.text-primary.text-center.block');
+        console.log("BLOCK: " + block);
         if (block && block.innerText.startsWith('Sign up')) {
-            block.closest('div[data-type="portal"] > div').remove();
+            console.log("HERE");
+            document.querySelector('div.fixed.inset-0.pointer-events-auto').remove();
+            document.querySelector('div.fixed.inset-0.flex.items-center.justify-center.pointer-events-none').remove();
         }
     }
 
