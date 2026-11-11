@@ -46,9 +46,7 @@
 // ===== Remove OVERLAY =====
     function removeOverlay() {
         let block = document.querySelector('div.font-serif.text-3xl.font-normal.text-primary.text-center.block');
-        console.log("BLOCK: " + block);
         if (block && block.innerText.startsWith('Sign up')) {
-            console.log("HERE");
             document.querySelector('div.fixed.inset-0.pointer-events-auto').remove();
             document.querySelector('div.fixed.inset-0.flex.items-center.justify-center.pointer-events-none').remove();
         }
